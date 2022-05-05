@@ -1,9 +1,9 @@
-const collegeModel = require("../models/collegeModel");
+const collegeModel = require("../Models/collegeModel");
 
 //==================================validator function==============================
 
 const isValid= function (value){
-if(typeof value==='undefined' || typeof value === 'number' || value === null) return false;
+if(typeof value==='undefined' || value === null) return false;
 if(typeof value ==='string' && value.trim().length===0) return false;
 return true;
 }

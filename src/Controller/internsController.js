@@ -1,4 +1,4 @@
-const collegeModel = require("../Models/collegeModel")
+const collegeModel = require("../Models/collegeModel");
 const internsModel = require("../Models/internsModel");
 const validator = require('validator')
 
@@ -44,14 +44,14 @@ if(!isValid(data.collegeId)){
 // ======================validation for unique==========================
 
 if(!(validator.isEmail(data.email))){
-    return res.ststus(400).send({status:false,message:"Please Enter a valid email"})
+    return res.status(400).send({status:false,message:"Please Enter a valid email"})
 }
 
-let num1=data.mobile    //mobile number validation
-let num2= (/^[0-9]{10}/.test(data.mobile))
-if(!(num1===10 && num2)){
+ let num1=data.mobile    //mobile number validation
+ let num2= (/^[0-9]{10}/.test(data.mobile))
+ if(!num2 && num1>10) {
     return res.status(400).send({status:false,message:"Please Enter a valid mobile number"})
-}
+ }
 
 //validation for collegeId exist or not
 const collegeId= await collegeModel.findOne({_id:data.collegeId})
@@ -59,7 +59,7 @@ if(!collegeId){
     return res.status(400).send({status:false,message:"Please Enter a valid collegeId"})
 }
 if(collegeId.isDeleted===true){
-    return res.status(400).send({status:false,message:"This college is already deleted"})
+    return res.status(400).send({status:false,message:"This college is deleted"})
 }
 
 //validation for mobile and email is already exist or not
