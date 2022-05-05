@@ -47,11 +47,10 @@ if(!(validator.isEmail(data.email))){
     return res.status(400).send({status:false,message:"Please Enter a valid email"})
 }
 
- let num1=data.mobile    //mobile number validation
- let num2= (/^[0-9]{10}/.test(data.mobile))
- if(!num2 && num1>10) {
-    return res.status(400).send({status:false,message:"Please Enter a valid mobile number"})
- }
+let mobile = data.mobile      //mobile number validation
+if (!/^[0-9]{10}$/.test(mobile)) {
+    return res.status(400).send({ status: false, msg: " Please Enter a valid mobile number" })
+}
 
 //validation for collegeId exist or not
 const collegeId= await collegeModel.findOne({_id:data.collegeId})

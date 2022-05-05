@@ -46,7 +46,7 @@ if (usedFullName){
 }
         
 let college = await collegeModel.create(data);
-        return res.status(201).send({ msg: college });
+        return res.status(201).send({status:true, msg: college });
     }
     catch (err) {
         return res.status(500).send({ status: false, msg: err.message })
