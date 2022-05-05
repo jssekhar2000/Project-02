@@ -41,7 +41,7 @@ const internSchema = new mongoose.Schema(
             required: "college id is required"
     },
     isDeleted: {
-        type: boolean,
+        type: Boolean,
           default: false
     }
 })
