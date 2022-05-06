@@ -37,9 +37,9 @@ if(!isValid(data.mobile)){
     return res.status(400).send({status:false,message:" mobile number is Mandatory"})
 }
 
-if(!isValid(data.collegeId)){
-    return res.status(400).send({status:false,message:" collegeId is Mandatory"})
-}
+// if(!isValid(data.collegeId)){
+//     return res.status(400).send({status:false,message:" collegeId is Mandatory"})
+// }
 
 // ======================validation for unique==========================
 
@@ -53,11 +53,13 @@ if (!/^[0-9]{10}$/.test(mobile)) {
 }
 
 //validation for collegeId exist or not
-const collegeId= await collegeModel.findOne({_id:data.collegeId})
-if(!collegeId){
-    return res.status(400).send({status:false,message:"Please Enter a valid collegeId"})
+const Name= await collegeModel.findOne({name:data.collegeName})
+if(!Name){
+    return res.status(400).send({status:false,message:"Please Enter a valid collegeName"})
+    
 }
-if(collegeId.isDeleted===true){
+data.collegeId= Name._id
+if(Name.isDeleted===true){
     return res.status(400).send({status:false,message:"This college is deleted"})
 }
 
