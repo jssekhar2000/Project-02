@@ -1,5 +1,5 @@
 # Project2-Interns
-College Interns Project 
+College-Interns-Project 
 
 Group Members name-
 
