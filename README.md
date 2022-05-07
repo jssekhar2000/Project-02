@@ -3,5 +3,5 @@ College-Interns-Project
 
 Group Members name-
 
-1)Salman Sayyed
-2)Sekhar Mohanta
+1)Sekhar Mohanta
+2)Salman Sayyed
