@@ -37,9 +37,6 @@ if(!isValid(data.mobile)){
     return res.status(400).send({status:false,message:" mobile number is Mandatory"})
 }
 
-// if(!isValid(data.collegeId)){
-//     return res.status(400).send({status:false,message:" collegeId is Mandatory"})
-// }
 
 // ======================validation for unique==========================
 
