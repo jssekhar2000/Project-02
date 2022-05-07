@@ -16,6 +16,7 @@ const isValid= function (value){
 //================================Create Intern Api=================================
 
 const createInterns = async function(req,res){
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
         const data = req.body
 
@@ -87,6 +88,7 @@ if(usedMobile){
 
 
 const getCollegeDetails = async function(req,res){
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
        const collegeName = req.query.name
        if(!collegeName){
